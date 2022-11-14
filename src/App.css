@@ -1,0 +1,899 @@
+@import url("https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap");
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+.App {
+  flex-direction: row;
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: red;
+  font-family: "Play", sans-serif;
+}
+
+h4 {
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  width: 100%;
+}
+
+.sidebar {
+  flex-direction: column;
+  display: flex;
+  width: 15%;
+  height: 100%;
+}
+
+.sidebarheader {
+  display: flex;
+  justify-content: center;
+  background-color: red;
+  width: 100%;
+  height: 100px;
+}
+
+.sidebarheader .outercircle {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0px 0px 10px;
+  background-color: aqua;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  border: 7px solid gray;
+}
+
+.sidebarheader .outercircle .innercircle {
+  display: flex;
+  margin: 10px 0px 0px 0px;
+  transform: rotate(-45deg);
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 20px;
+  height: 20px;
+  width: 40px;
+}
+
+.sidebarheader .blipcontainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  height: 30px;
+}
+
+.blipred {
+  display: flex;
+  border: 3px solid gray;
+  background-color: red;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.blipyellow {
+  display: flex;
+  border: 3px solid gray;
+  background-color: yellow;
+  border-radius: 20px;
+  width: 20px;
+  margin-right: 10px;
+  height: 20px;
+}
+
+.blipgreen {
+  display: flex;
+  border: 3px solid gray;
+  background-color: green;
+  border-radius: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+.blipred .innercircle {
+  display: flex;
+  margin: 3px 0px 0px 0px;
+  transform: rotate(-45deg);
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 20px;
+  height: 7px;
+  width: 13px;
+}
+
+.blipyellow .innercircle {
+  display: flex;
+  margin: 3px 0px 0px 0px;
+  transform: rotate(-45deg);
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 20px;
+  height: 7px;
+  width: 13px;
+}
+
+.blipgreen .innercircle {
+  display: flex;
+  margin: 3px 0px 0px 0px;
+  transform: rotate(-45deg);
+  background-color: white;
+  opacity: 0.7;
+  border-radius: 20px;
+  height: 7px;
+  width: 13px;
+}
+
+.sidebarnav {
+  display: flex;
+  width: 100%;
+  background-color: rgb(173, 0, 0);
+  border-bottom: 2px solid black;
+}
+
+.sidebarnav ul {
+  list-style-type: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.sidebarnav ul a {
+  text-decoration: none;
+  color: white;
+}
+
+.sidebarnav ul a li {
+  justify-content: center;
+  display: flex;
+  padding: 25px 0;
+  width: 100%;
+}
+
+.sidebarnav ul a li img {
+  opacity: 0;
+}
+
+.sidebarnav ul a li:hover {
+  box-shadow: inset 0 0 5px #000000;
+  text-decoration: underline;
+  text-decoration-color: #f6cf57;
+}
+
+.sidebarnav ul a.active {
+  text-decoration: underline;
+  color: white;
+  text-decoration-color: #f6cf57;
+  text-shadow: 3px -3px 0 rgb(100, 0, 0);
+}
+
+.sidebarnav ul a.active li img {
+  opacity: 1;
+}
+
+.login {
+  background-color: rgb(173, 0, 0);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.login h4 {
+  margin: 10px 0 0 0;
+  color: white;
+}
+
+.loginform {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginform input {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.loginform select {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  width: 50%;
+  margin: 10px 0;
+}
+
+.loginform .btn + .btn {
+  margin-left: 10px;
+}
+
+.btn {
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 5px 10px;
+}
+
+.btn-primary {
+  color: white;
+  background-color: rgb(75, 75, 75);
+  border-color: rgb(94, 94, 94);
+}
+
+.btn-primary:hover {
+  color: #212529;
+  background-color: rgb(110, 110, 110);
+  border-color: rgb(130, 130, 130);
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(91, 194, 194, 0.5);
+}
+
+.btn-success {
+  background-color: #35a72b;
+  color: #fff;
+  border-color: #2a802a;
+}
+
+.btn-success:hover {
+  background-color: #2d8f24;
+  color: #212529;
+  border-color: #325f32;
+}
+
+.btn-success:focus,
+.btn-success.focus {
+  box-shadow: 0 0 0 0.2rem rgba(91, 194, 194, 0.5);
+}
+
+.btn-danger {
+  background-color: #a72b2b;
+  color: #fff;
+  border-color: #802a2a;
+}
+
+.btn-danger:hover {
+  background-color: #8f2424;
+  color: #212529;
+  border-color: #5f3232;
+}
+
+.btn-danger:focus,
+.btn-danger.focus {
+  box-shadow: 0 0 0 0.2rem rgba(91, 194, 194, 0.5);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  width: 85%;
+  height: 100%;
+  background-color: rgb(100, 0, 0);
+  box-shadow: inset 0 0 10px #000000;
+}
+
+.pokemoncontent {
+  display: flex;
+  flex-direction: row;
+}
+
+.evolutionchain {
+  border-radius: 0 20px 20px 0;
+  align-self: center;
+  height: 80%;
+  width: 10%;
+  display: flex;
+}
+
+.evolutionchainbackground {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  border-radius: 0 20px 20px 0;
+  align-self: center;
+  box-shadow: inset 0 0 10px #000000;
+  height: 96%;
+  width: 95%;
+  background-color: white;
+}
+
+.evolutionchainback::-webkit-scrollbar {
+  display: none;
+}
+
+.pokemoncontent .card-border {
+  display: flex;
+  margin-top: 10px;
+  justify-content: center;
+  box-shadow: 0 0 10px #000000;
+  border-radius: 20px;
+  width: 20rem;
+  min-height: 200px;
+  padding: 5px;
+}
+
+.pokemoncontent .card-border .card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.pokemoncontent .card-border .card .card-header {
+  width: 100%;
+  display: flex;
+  padding: 5px 0;
+  justify-content: center;
+  text-shadow: 2px 2px 0px black;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.pokemonsearchdiv .row {
+  justify-content: center;
+}
+
+.searchpokemonform {
+  display: flex;
+}
+
+.searchpokemonform input {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding: 5px;
+}
+
+.searchpokemonform .btn {
+  border-radius: 0 5px 5px 0;
+}
+
+.pokedexcontent {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.pokedexcontent .row {
+  justify-content: center;
+}
+
+.pokedexcard .row img {
+  border-radius: 10px;
+  background-color: rgb(82, 82, 82);
+  padding: 10px;
+  box-shadow: inset 0 0 5px #000000;
+  margin: 10px 0;
+}
+
+.pokedexcard {
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: #272727;
+  box-shadow: 0 0 10px #000000;
+}
+
+.pokedexcardrow {
+  flex-wrap: wrap;
+  max-height: 100%;
+  overflow-x: hidden;
+  justify-content: space-around !important;
+}
+
+.btn-gen {
+  margin-bottom: 10px;
+}
+
+.btn-gen + .btn-gen {
+  margin-left: 10px;
+}
+
+.typecard {
+  display: flex;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.typecard + .typecard {
+  margin-left: 10px;
+}
+
+.evolcard {
+  padding: 10px;
+  color: white;
+  border-radius: 10px;
+  background-color: rgb(58, 58, 58, 0.3);
+  box-shadow: 0 0 5px #000000;
+}
+
+.evolcard.currevol {
+  animation: currevolution 0.5s ease-in infinite alternate;
+}
+
+@keyframes currevolution {
+  0% {
+    box-shadow: 0 0 5px #000000;
+  }
+  100% {
+    box-shadow: 0 0 15px #000000;
+  }
+}
+
+.evolcard img {
+  display: flex;
+  box-shadow: inset 0 0 5px #000000;
+  background-color: rgb(97, 97, 97, 0.3);
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.evolname {
+  display: flex;
+  box-shadow: inset 0 0 5px #000000;
+  background-color: rgb(97, 97, 97, 0.3);
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.pokedexcontent .card-border {
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  border-radius: 20px;
+  width: 20rem;
+  min-height: 200px;
+  padding: 5px;
+}
+
+.pokedexcontent .card-border .card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  width: 100%;
+}
+
+.pokedexcontent .card-border .card .card-header {
+  width: 100%;
+  display: flex;
+  padding: 5px 0;
+  justify-content: center;
+  text-shadow: 2px 2px 0px black;
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.card-image {
+  display: flex;
+  margin-top: 20px;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+}
+
+.card-footer {
+  border-top: 3px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  bottom: 0;
+  padding: 5px 0;
+  margin-top: 10px;
+  color: #000000;
+}
+
+.card-body {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.card-body h4 {
+  color: white;
+  text-shadow: 1px 1px 5px #000000;
+}
+
+.statstext {
+  border-radius: 10px;
+  display: flex;
+  width: 80%;
+  padding-bottom: 10px;
+  box-shadow: inset 0 0 10px #000000;
+}
+
+.statstext .row {
+  display: block;
+}
+
+.stat {
+  margin-top: 10px;
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+
+.stat h5 {
+  margin: 0;
+}
+
+.stat p {
+  margin: 0;
+}
+
+.card-border.bugcard {
+  background: linear-gradient(205deg, white 50%, #8c9c0e 50%);
+}
+
+.evolutionchain.bugcard {
+  background: linear-gradient(0deg, white 50%, #8c9c0e 50%);
+}
+
+.card.bugcard {
+  background: linear-gradient(25deg, white 50%, #8c9c0e 50%);
+}
+
+.card-border.darkcard {
+  background: linear-gradient(205deg, white 50%, #3c2e23 50%);
+}
+
+.evolutionchain.darkcard {
+  background: linear-gradient(0deg, white 50%, #3c2e23 50%);
+}
+
+.card.darkcard {
+  background: linear-gradient(25deg, white 50%, #3c2e23 50%);
+}
+
+.card-border.dragoncard {
+  background: linear-gradient(205deg, white 50%, #342d5b 50%);
+}
+
+.evolutionchain.dragoncard {
+  background: linear-gradient(0deg, white 50%, #342d5b 50%);
+}
+
+.card.dragoncard {
+  background: linear-gradient(25deg, white 50%, #342d5b 50%);
+}
+
+.card-border.electriccard {
+  background: linear-gradient(205deg, white 50%, #e89406 50%);
+}
+
+.evolutionchain.electriccard {
+  background: linear-gradient(0deg, white 50%, #e89406 50%);
+}
+
+.card.electriccard {
+  background: linear-gradient(25deg, white 50%, #e89406 50%);
+}
+
+.card-border.fairycard {
+  background: linear-gradient(205deg, white 50%, #e18fe1 50%);
+}
+
+.evolutionchain.fairycard {
+  background: linear-gradient(0deg, white 50%, #e18fe1 50%);
+}
+
+.card.fairycard {
+  background: linear-gradient(25deg, white 50%, #e18fe1 50%);
+}
+
+.card-border.fightingcard {
+  background: linear-gradient(205deg, white 50%, #5c2616 50%);
+}
+
+.evolutionchain.fightingcard {
+  background: linear-gradient(0deg, white 50%, #5c2616 50%);
+}
+
+.card.fightingcard {
+  background: linear-gradient(25deg, white 50%, #5c2616 50%);
+}
+
+.card-border.firecard {
+  background: linear-gradient(205deg, white 50%, #c72000 50%);
+}
+
+.evolutionchain.firecard {
+  background: linear-gradient(0deg, white 50%, #c72000 50%);
+}
+
+.card.firecard {
+  background: linear-gradient(25deg, white 50%, #c72000 50%);
+}
+
+.card-border.flyingcard {
+  background: linear-gradient(205deg, white 50%, #5d74d5 50%);
+}
+
+.evolutionchain.flyingcard {
+  background: linear-gradient(0deg, white 50%, #5d74d5 50%);
+}
+
+.card.flyingcard {
+  background: linear-gradient(25deg, white 50%, #5d74d5 50%);
+}
+
+.card-border.ghostcard {
+  background: linear-gradient(205deg, white 50%, #454687 50%);
+}
+
+.evolutionchain.ghostcard {
+  background: linear-gradient(0deg, white 50%, #454687 50%);
+}
+
+.card.ghostcard {
+  background: linear-gradient(25deg, white 50%, #454687 50%);
+}
+
+.card-border.grasscard {
+  background: linear-gradient(205deg, white 50%, #448323 50%);
+}
+
+.evolutionchain.grasscard {
+  background: linear-gradient(0deg, white 50%, #448323 50%);
+}
+
+.card.grasscard {
+  background: linear-gradient(25deg, white 50%, #448323 50%);
+}
+
+.card-border.groundcard {
+  background: linear-gradient(205deg, white 50%, #9b813f 50%);
+}
+
+.evolutionchain.groundcard {
+  background: linear-gradient(0deg, white 50%, #9b813f 50%);
+}
+
+.card.groundcard {
+  background: linear-gradient(25deg, white 50%, #9b813f 50%);
+}
+
+.card-border.icecard {
+  background: linear-gradient(205deg, white 50%, #6bd3f4 50%);
+}
+
+.evolutionchain.icecard {
+  background: linear-gradient(0deg, white 50%, #6bd3f4 50%);
+}
+
+.card.icecard {
+  background: linear-gradient(25deg, white 50%, #6bd3f4 50%);
+}
+
+.card-border.normalcard {
+  background: linear-gradient(205deg, white 50%, #adaaa0 50%);
+}
+
+.evolutionchain.normalcard {
+  background: linear-gradient(0deg, white 50%, #adaaa0 50%);
+}
+
+.card.normalcard {
+  background: linear-gradient(25deg, white 50%, #adaaa0 50%);
+}
+
+.card-border.poisoncard {
+  background: linear-gradient(205deg, white 50%, #602962 50%);
+}
+
+.evolutionchain.poisoncard {
+  background: linear-gradient(0deg, white 50%, #602962 50%);
+}
+
+.card.poisoncard {
+  background: linear-gradient(25deg, white 50%, #602962 50%);
+}
+
+.card-border.watercard {
+  background: linear-gradient(205deg, white 50%, #0d66c3 50%);
+}
+
+.evolutionchain.watercard {
+  background: linear-gradient(0deg, white 50%, #0d66c3 50%);
+}
+
+.card.watercard {
+  background: linear-gradient(25deg, white 50%, #0d66c3 50%);
+}
+
+.card-border.steelcard {
+  background: linear-gradient(205deg, white 50%, #8f8e9e 50%);
+}
+
+.evolutionchain.steelcard {
+  background: linear-gradient(0deg, white 50%, #8f8e9e 50%);
+}
+
+.card.steelcard {
+  background: linear-gradient(25deg, white 50%, #8f8e9e 50%);
+}
+
+.card-border.psychiccard {
+  background: linear-gradient(205deg, white 50%, #db3164 50%);
+}
+
+.evolutionchain.psychiccard {
+  background: linear-gradient(0deg, white 50%, #db3164 50%);
+}
+
+.card.psychiccard {
+  background: linear-gradient(25deg, white 50%, #db3164 50%);
+}
+
+.card-border.rockcard {
+  background: linear-gradient(205deg, white 50%, #9f873f 50%);
+}
+
+.evolutionchain.rockcard {
+  background: linear-gradient(0deg, white 50%, #9f873f 50%);
+}
+
+.card.rockcard {
+  background: linear-gradient(25deg, white 50%, #9f873f 50%);
+}
+
+.btn-bug {
+  background-color: #8c9c0e;
+  color: #fff;
+  border-color: #7e8b18;
+}
+
+.btn-bug {
+  background-color: #8c9c0e;
+  color: #fff;
+  border-color: #7e8b18;
+}
+
+.btn-dark {
+  background-color: #3c2e23;
+  color: #fff;
+  border-color: #2b221b;
+}
+
+.btn-dragon {
+  background-color: #342d5b;
+  color: #fff;
+  border-color: #2d2846;
+}
+
+.btn-electric {
+  background-color: #e89406;
+  color: #fff;
+  border-color: #bd8018;
+}
+
+.btn-fairy {
+  background-color: #e18fe1;
+  color: #fff;
+  border-color: #ad6fad;
+}
+
+.btn-fighting {
+  background-color: #5c2616;
+  color: #fff;
+  border-color: #421d12;
+}
+
+.btn-fire {
+  background-color: #c72000;
+  color: #fff;
+  border-color: #991900;
+}
+
+.btn-flying {
+  background-color: #5d74d5;
+  color: #fff;
+  border-color: #4858a1;
+}
+
+.btn-ghost {
+  background-color: #454687;
+  color: #fff;
+  border-color: #333463;
+}
+
+.btn-grass {
+  background-color: #448323;
+  color: #fff;
+  border-color: #34631b;
+}
+
+.btn-ground {
+  background-color: #9b813f;
+  color: #fff;
+  border-color: #7c6733;
+}
+
+.btn-ice {
+  background-color: #6bd3f4;
+  color: #fff;
+  border-color: #53a5be;
+}
+
+.btn-normal {
+  background-color: #adaaa0;
+  color: #fff;
+  border-color: #8b8981;
+}
+
+.btn-poison {
+  background-color: #602962;
+  color: #fff;
+  border-color: #401b41;
+}
+
+.btn-psychic {
+  background-color: #db3164;
+  color: #fff;
+  border-color: #b62752;
+}
+
+.btn-rock {
+  background-color: #9f873f;
+  color: #fff;
+  border-color: #7e6b32;
+}
+
+.btn-steel {
+  background-color: #8f8e9e;
+  color: #fff;
+  border-color: #787785;
+}
+
+.btn-water {
+  background-color: #0d66c3;
+  color: #fff;
+  border-color: #0d4f96;
+}
+
+.row.text-center {
+  justify-content: center;
+}
+
+.row.text-white {
+  color: white;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}

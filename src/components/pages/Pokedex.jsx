@@ -2,6 +2,7 @@ import PokedexCard from "../PokedexCard";
 import { useEffect, useState } from "react";
 import GenBtn from "../GenBtn";
 import { getUserInfo } from "../../utils/credentialsHelper";
+import facade from "../../apiFacade";
 const Pokedex = ({ loggedIn }) => {
   const [generations, setGenerations] = useState();
   const [gensFound, setGensFound] = useState(false);
@@ -82,7 +83,7 @@ const Pokedex = ({ loggedIn }) => {
               </>
             ) : (
               <>
-                {favorites != null ? (
+                {favorites != null && favorites.length > 0 ? (
                   favorites.map((el, index) => (
                     <PokedexCard
                       loggedIn={loggedIn}
@@ -101,6 +102,11 @@ const Pokedex = ({ loggedIn }) => {
                         Click a generation to get a list of pokemons
                       </h1>
                     </div>
+                    {!facade.loggedIn() && (
+                      <div className="row">
+                        <h2>Please login to see or add favorite pokemons</h2>
+                      </div>
+                    )}
                   </>
                 )}
               </>

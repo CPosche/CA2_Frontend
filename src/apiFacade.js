@@ -36,7 +36,7 @@ function apiFacade() {
   };
 
   const addFav = async (name, id, username) => {
-    const options = makeOptions("POST", true, {
+    const options = makeOptions("PUT", true, {
       pokename: name,
       pokeid: id,
       username: username,
@@ -46,7 +46,7 @@ function apiFacade() {
   };
 
   const removeFav = async (name, id, username) => {
-    const options = makeOptions("POST", true, {
+    const options = makeOptions("PUT", true, {
       pokename: name,
       pokeid: id,
       username: username,

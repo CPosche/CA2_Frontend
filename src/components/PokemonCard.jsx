@@ -1,16 +1,27 @@
 import { useEffect, useState } from "react";
 import facade from "../apiFacade";
 import img from "../../src/assets/pokeload.gif";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { getUserInfo } from "../utils/credentialsHelper";
 
 const PokemonCard = ({ type, name, pokedex, stats }) => {
   const [alternate, setAlternate] = useState(false);
   const [extraPrompt, setExtraPrompt] = useState("");
   const [pokeimg, setPokeImg] = useState();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     setPokeImg(`../../src/assets/pokemon/other/dream-world/${pokedex}.svg`);
+    if (facade.getToken() != null) {
+      getUserInfo().roles.map((el) => el === "admin" && setIsAdmin(true));
+    }
+    checkIfLiked();
   }, [pokedex]);
+
+  const checkIfLiked = async () => {
+    setIsLiked(await facade.checkFav(getUserInfo().username, pokedex));
+  };
 
   const revertImg = (pokeimg) => {
     setPokeImg(`../../src/assets/pokemon/other/dream-world/${pokeimg}.svg`);
@@ -38,6 +49,15 @@ const PokemonCard = ({ type, name, pokedex, stats }) => {
     setPokeImg(
       `../../src/assets/pokemon/other/official-artwork/${pokedex}.png`
     );
+  };
+
+  const favPokemon = async () => {
+    isLiked
+      ? console.log(
+          await facade.removeFav(name, pokedex, getUserInfo().username)
+        )
+      : console.log(await facade.addFav(name, pokedex, getUserInfo().username));
+    setIsLiked(!isLiked);
   };
 
   const fetchAlternateImage = async (pokename, extra) => {
@@ -105,6 +125,23 @@ const PokemonCard = ({ type, name, pokedex, stats }) => {
           </div>
         </div>
         <div className="card-footer">
+          {facade.loggedIn() && (
+            <div
+              onDoubleClick={favPokemon}
+              style={{
+                marginLeft: "5px",
+                display: "flex",
+                justifySelf: "self-start",
+                flexDirection: "column",
+              }}
+            >
+              {isLiked ? (
+                <AiFillHeart color="red" size={24} />
+              ) : (
+                <AiOutlineHeart size={24} />
+              )}
+            </div>
+          )}
           <button
             className={`btn btn-${
               type.length === 1 ? type[0].type.name : type[1].type.name
@@ -117,7 +154,7 @@ const PokemonCard = ({ type, name, pokedex, stats }) => {
           >
             {alternate ? `Normal` : `Alternate`} {name}
           </button>
-          {!alternate && (
+          {!alternate && isAdmin && (
             <input
               type="text"
               value={extraPrompt}

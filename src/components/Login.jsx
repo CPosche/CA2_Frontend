@@ -23,6 +23,9 @@ const Login = ({ login }) => {
       regCredentials.roles
     );
     setRegister(false);
+    confirm("do you wanna login?") &&
+      login(regCredentials.username, regCredentials.password);
+    setRegCredentials(reginit);
     setLoginCredentials(init);
   };
 

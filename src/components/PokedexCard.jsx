@@ -43,10 +43,10 @@ const PokedexCard = ({ loggedIn, name, url }) => {
   const favPokemon = async () => {
     isLiked
       ? console.log(
-          await facade.addFav(name, pokemon.id, getUserInfo().username)
+          await facade.removeFav(name, pokemon.id, getUserInfo().username)
         )
       : console.log(
-          await facade.removeFav(name, pokemon.id, getUserInfo().username)
+          await facade.addFav(name, pokemon.id, getUserInfo().username)
         );
     setIsLiked(!isLiked);
   };
@@ -101,7 +101,11 @@ const PokedexCard = ({ loggedIn, name, url }) => {
               flexDirection: "column",
             }}
           >
-            {isLiked ? <AiFillHeart size={24} /> : <AiOutlineHeart size={24} />}
+            {isLiked ? (
+              <AiFillHeart color="red" size={24} />
+            ) : (
+              <AiOutlineHeart size={24} />
+            )}
           </div>
         )}
       </div>

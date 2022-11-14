@@ -77,11 +77,10 @@ function LoggedIn({ logout }) {
       <div className="row text-center">
         <button
           style={{ marginTop: "10px" }}
-          onClick={() =>
-            facade
-              .removeUser(dataFromServer.username)
-              .then((res) => res && logout)
-          }
+          onClick={() => {
+            facade.removeUser(dataFromServer.username);
+            logout();
+          }}
           className="btn btn-danger"
         >
           Delete user
